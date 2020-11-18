@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+// import example from '../app/employees.json';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -6,7 +7,10 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  employees = require('../app/employees.json');
+ private employees = require('./employees.json');
+  constructor() {
+    console.log(this.employees);
+  }
   rows = this.employees.map((row: { [x: string]: any; }) => ({
     name: row['firstName'],
     lastName: row['lastName'],
@@ -40,5 +44,5 @@ export class AppComponent {
     },
 
   ];
-  constructor() {}
+ 
 }
