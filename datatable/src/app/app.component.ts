@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-// import example from '../app/employees.json';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -7,20 +7,15 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
- private employees = require('./employees.json');
-  constructor() {
-    console.log(this.employees);
-  }
+  private employees = require('./employees.json');
+
   rows = this.employees.map((row: { [x: string]: any; }) => ({
     name: row['firstName'],
     lastName: row['lastName'],
     jobTitleName: row['jobTitleName'],
     emailAddress: row['emailAddress'],
     phoneNumber: row['phoneNumber']
-
-
   }))
-
   columns = [
     {
       prop: 'name',
@@ -44,5 +39,5 @@ export class AppComponent {
     },
 
   ];
- 
+
 }
